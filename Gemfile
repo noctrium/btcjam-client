@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.13'
+
+
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -9,13 +11,12 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'haml-rails'
-gem 'debugger'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -40,6 +41,15 @@ end
 
 group :development do
   gem 'sqlite3'
+end
+
+group :development, :test, :staging do
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'byebug', '~> 2.7'
+  gem 'pry-byebug', '~> 1.3'
+  gem 'rack-mini-profiler', require: false
+  gem 'image_optim', '~> 0.14', require: false
+  gem 'better_errors', '~> 1.1'
 end
 
 group :production do

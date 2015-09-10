@@ -95,7 +95,7 @@ Devise.setup do |config|
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
-  config.use_salt_as_remember_token = true
+  #config.use_salt_as_remember_token = true
 
   # Options to be passed to the created cookie. For instance, you can set
   # :secure => true in order to force SSL only cookies.
@@ -148,6 +148,8 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 2.hours
 
+  config.secret_key = '95f6fb9507495cc1b5cdf8521ce0d101d08c28f2e231aa3beea11aae391a78bdd3340b4b6572b3d5f901272a2a8b2ce1eb0ea63de9bc9658f2e86122769396d0'
+
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use
   # :sha1, :sha512 or encryptors from others authentication tools as :clearance_sha1,
@@ -197,7 +199,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :btcjam,  BTCJAM_APP_ID, BTCJAM_APP_SECRET, :client_options =>  {:site => BTCJAM_APP_URL}
+  config.omniauth :btcjam,  BTCJAM_APP_ID, BTCJAM_APP_SECRET, :client_options =>  {:site => BTCJAM_APP_URL, :pira=>'piro'},authorize_params: { registration: 'new' }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
